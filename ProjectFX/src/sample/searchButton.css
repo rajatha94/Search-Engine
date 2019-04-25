@@ -1,0 +1,16 @@
+.root {
+  -fx-padding: 15;
+  -fx-background-color: #383838;
+}
+
+.textField {
+  -fx-background-image: url('/sample/search-9-24.ico');
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: left center;
+  /*-fx-font-size: 20;*/
+}
+
+.button {
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+}
