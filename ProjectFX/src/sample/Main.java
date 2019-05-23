@@ -31,40 +31,6 @@ public class Main extends Application implements EventHandler<ActionEvent> {
     primaryStage.setScene(scene);
     primaryStage.setTitle("Researcher");
     primaryStage.show();
-
-
-
-//    window = primaryStage;
-//
-//    Label label = new Label("Please click below to search");
-//    search = new Button("Search");
-//    search.setOnAction(this);
-//    HBox hBox = new HBox();
-//    TextField textField = new TextField();
-//    textField.setAlignment(Pos.CENTER);
-//    textField.setText("Researchr");
-//    textField.setMinSize(20, 20);
-//    hBox.setAlignment(Pos.CENTER);
-//    hBox.getChildren().addAll(textField);
-//    VBox layout = new VBox(20);
-//    layout.getChildren().addAll(label, search);
-//
-//
-//    BorderPane borderPane = new BorderPane();
-//    borderPane.setTop(hBox);
-//    borderPane.setCenter(layout);
-//
-//    scene1 = new Scene(borderPane, 200, 200);
-//
-//
-//    back = new Button("Back");
-//    back.setOnAction(this);
-//    StackPane stackPane = new StackPane();
-//    stackPane.getChildren().add(back);
-//    scene2 = new Scene(stackPane, 600, 600);
-//    window.setTitle("Researcher");
-//    window.setScene(scene1);
-//    window.show();
   }
 
 
