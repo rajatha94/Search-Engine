@@ -51,8 +51,6 @@ public class Researcher {
     while (jp.nextToken() != JsonToken.END_OBJECT) {
       String fieldName = jp.getCurrentName();
       JsonNode jsonNode = jp.readValueAsTree();
-//      Iterator<String> iterator = jsonNode.fieldNames();
-      // String abstractString = jsonNode.get("abstract").toString();
       try {
         String title = jsonNode.get("title").toString();
         String id = jsonNode.get("id").toString().replace("\"", "");
@@ -125,40 +123,6 @@ public class Researcher {
         jp.skipChildren();
         break;
       }
-      //JsonNode node1 = jp.readValueAsTree();
-//      while (iterator.hasNext()) {
-//        System.out.println(jsonNode.get(string));
-//        string = iterator.next();
-//      }
-//      // move from field name to field value
-//      current = jp.nextToken();
-//      if (fieldName.equals("page_end")) {
-//        if (current == JsonToken.START_OBJECT) {
-//          // For each of the records in the array
-//          while (jp.nextToken() != JsonToken.END_OBJECT) {
-//            // read the record into a tree model,
-//            // this moves the parsing position to the end of it
-//            JsonNode node = jp.readValueAsTree();
-//            Iterator<String> iterator1 = node.fieldNames();
-//            String string1 = iterator1.toString();
-//            //JsonNode node1 = jp.readValueAsTree();
-//            while (iterator1.hasNext()) {
-//              System.out.println(node.get(string1));
-//              string1 = iterator1.next();
-//            }
-//            // And now we have random access to everything in the object
-////            System.out.println("field1: " + node.get("field1").asText());
-////            System.out.println("field2: " + node.get("field2").asText());
-//          }
-//        } else {
-//          System.out.println("Error: records should be an array: skipping.");
-//          jp.skipChildren();
-//        }
-//      } else {
-//        System.out.println("Unprocessed property: " + fieldName);
-//        jp.skipChildren();
-//      }
-      //break;
     }
     try {
       client.add(collection);
@@ -169,32 +133,6 @@ public class Researcher {
   }
 
   public static void processQuery() throws IOException, SolrServerException {
-
-//    getStopWordList();
-//    Map<String, Map<String, String>> relMap = new HashMap<>();
-//    Scanner rel = new Scanner(new FileReader("qrels.adhoc.51-100.AP89.txt"));
-//    while (rel.hasNextLine()) {
-//      String line = rel.nextLine();
-//      String[] values = line.trim().split(" ");
-//      if (relMap.containsKey(values[0])) {
-//        Map<String, String> docRelevance = relMap.get(values[0]);
-//        docRelevance.put(values[2], values[3]);
-//        relMap.put(values[0], docRelevance);
-//      } else {
-//        Map<String, String> docRelevance = new HashMap<>();
-//        docRelevance.put(values[2], values[3]);
-//        relMap.put(values[0], docRelevance);
-//      }
-//    }
-//
-//    final String solrUrl = "http://localhost:8983/solr/projectCore";
-//    final SolrClient client = new ConcurrentUpdateSolrClient.Builder(solrUrl).build();
-    //Scanner in = new Scanner(new FileReader("query_desc.51-100.short.txt"));
-//    File file = new File("solrQueryResults.txt");
-//    if (!file.exists()) {
-//      file.createNewFile();
-//    }
-    //FileWriter fileWriter = new FileWriter(file);
     String queryNumber = "";
     String query = "the Story";
     if (query.equals("")) {
@@ -211,9 +149,6 @@ public class Researcher {
     QueryResponse queryResponse = client.query(solrQueryParams);
     SolrDocumentList solrDocumentList = queryResponse.getResults();
     System.out.println("Number of Docs retrieved: " + solrDocumentList.getNumFound());
-    //System.out.println("Ids:");
-//      Map<String, String> allDocs = relMap.get(queryNumber);
-//      int retrievedRelevantDocs = 0;
     for (SolrDocument solrDocument : solrDocumentList) {
 
       for (String fieldName : solrDocument.getFieldNames()) {
@@ -223,16 +158,7 @@ public class Researcher {
         }
         System.out.println(fieldName + ": " + solrDocument.get(fieldName));
       }
-//        String id = (String) (solrDocument.getFirstValue("id"));
-//        if (allDocs.containsKey(id) && allDocs.get(id).equals("1")) {
-//          ++retrievedRelevantDocs;
-//        }
-//        fileWriter.write((String) solrDocument.getFirstValue("id") + "\n");
     }
-//      System.out.println("Relevant retrieved documents: " + retrievedRelevantDocs);
-//      System.out.println("Precision for " + queryNumber + " : " + String
-//          .valueOf(retrievedRelevantDocs * 1.0 / 50));
-    //break;
   }
 
 
